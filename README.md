@@ -4,7 +4,7 @@
 ## Description
 
 This project was conducted as the project challenge of the 
-[DPhi Data Engineering bootcamp](https://dphi.tech/learn/data-engineering/). The goal is to apply everything learned in this course and build an end-to-end data pipeline.
+[DPhi Data Engineering bootcamp](https://dphi.tech/learn/data-engineering/) and there is going to be a Peer Review phase. The goal of this challenges was to apply everything learned in this course and build an end-to-end data pipeline.
 
 
 
@@ -46,7 +46,7 @@ The data pipelines were set as batch processing.
 
 Every minute, a job running in a Docker makes the API calls to get the data and ingest this data to a bucket in GCS.
 
-Every hour, two jobs would run. A first one that would take all data from the previous hour and ingest it in BQ, in a table partitioned by time and clustered by coin. The second job creates a Spark cluster in Dataproc, aggregates the data from the previous hour and calculates a set of metrics, which are again ingested in a production table partitioned by time and clustered by coin as well. 
+Every hour, two jobs run. The first one takes all data from the previous hour and ingests it in BQ, in a table partitioned by time and clustered by coin. A second job creates a Spark cluster in Dataproc, aggregates the data from the previous hour and calculates a set of metrics, which are again ingested in a production table partitioned by time and clustered by coin as well. 
 
 The dashboard used for reporting/monitoring is built on top of this last table.
 
@@ -58,7 +58,7 @@ The infrastructure is maintained mainly using Terraform.
 
 ## Setup
 
-This project has as pre-requisites: 
+This project has as main pre-requisites: 
 * GCP account
 * Terraform
 * Docker
@@ -73,7 +73,7 @@ For more info on how to setup this architecture and run the code, please check t
 
 ## Dashboard
 
-The dashboard is built with Data Studio. The dashboard can be accessed [here](https://datastudio.google.com/reporting/86c85a56-5b59-42e6-8c48-95aaa2c2bc0d) and the following image is an export.
+The dashboard is built with Data Studio. The following image is an export of the dashboard, created using two days of operation.
 
 
 ![Dashboard](./imgs/dashboard.png)
